@@ -1,34 +1,10 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { signUp } from '../../store/actions/authenticationActions';
 
-class Register extends Component {
-  state = {
-    email: "",
-    password: "",
-    // firstName: "",
-    // lastName: ""
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      [e.target.id]: e.target.value
-    });
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.signUp(this.state);
-  }
-
-  render() {
-    const { registerError } = this.props;
-
-    return (
+export const RegisterComponent = props =>
       <div className="container ">
         <div className="row">
           <div className="col s12 m8 offset-m2 l6 offset-l3">
-            <form onSubmit={this.handleSubmit} className="z-depth-5 transparentBG">
+            <form onSubmit={props.hSubmit} className="z-depth-5 transparentBG">
               <h5 className="white-text center">Sign Up</h5>
 
               {/* <div className="input-field grey-text text-lighten-4">
@@ -43,12 +19,12 @@ class Register extends Component {
 
               <div className="input-field grey-text text-lighten-4">
                 <label htmlFor="email" className="cyan-text text-lighten-1">Email</label>
-                <input type="email" id="email" onChange={this.handleChange} />
+                <input type="email" id="email" onChange={props.hChange} />
               </div>
 
               <div className="input-field grey-text text-lighten-4">
                 <label htmlFor="password" className="cyan-text text-lighten-1">Password</label>
-                <input type="password" id="password" onChange={this.handleChange} />
+                <input type="password" id="password" onChange={props.hChange} />
               </div>
 
               <div className="input-field">
@@ -56,27 +32,10 @@ class Register extends Component {
               </div>
 
               <div className="red-text text-accent-4">
-                {registerError ? <p>{registerError}</p> : null}
+                {props.rError}
               </div>
 
             </form>
           </div>
         </div>
       </div>
-    )
-  }
-}
-
-const mapStateToProps = (state) => {
-  return {
-    registerError: state.auth.registerError
-  }
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    signUp: (credentials) => dispatch(signUp(credentials))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Register)

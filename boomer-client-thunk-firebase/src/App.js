@@ -4,8 +4,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Dashboard from './components/dashboard/Dashboard';
 import NavbarComponent from './components/navbar/NavbarComponent';
 import RoomDetails from './components/rooms/RoomDetails';
-import Login from './components/authentication/Login';
-import Register from './components/authentication/Register';
+import Login from './containers/authentication/loginContainer';
+import Register from './containers/authentication/registerContainer';
 
 class App extends Component {
 
