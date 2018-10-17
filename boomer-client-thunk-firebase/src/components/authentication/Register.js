@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export const RegisterComponent = props =>
+export const RegisterComponent = (props) =>
       <div className="container ">
         <div className="row">
           <div className="col s12 m8 offset-m2 l6 offset-l3">

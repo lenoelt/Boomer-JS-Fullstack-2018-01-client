@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { signIn } from '../../store/actions/authenticationActions';
-import { LoginComponent } from '../../components/authentication/Login'
+import { LoginComponent } from '../../components/authentication/Login';
 
 class Login extends Component {
   state = {
@@ -23,7 +24,10 @@ class Login extends Component {
 
   render() {
     
-    const { authError } = this.props;
+    const { authError, auth } = this.props;
+
+    if (auth.uid)
+      return <Redirect to="/" />
 
     return (
       <LoginComponent hSubmit={this.handleSubmit} hChange={this.handleChange} aError={authError ? <p>{authError}</p> : null}/>

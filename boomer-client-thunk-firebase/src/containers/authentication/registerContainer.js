@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/actions/authenticationActions';
-import { RegisterComponent } from '../../components/authentication/Register'
+import { RegisterComponent } from '../../components/authentication/Register';
 
 class Register extends Component {
   state = {
@@ -23,17 +24,21 @@ class Register extends Component {
   }
 
   render() {
-    const { registerError } = this.props;
+    const { registerError, auth } = this.props;
+
+    if (auth.uid)
+      return <Redirect to="/" />
 
     return (
-		<RegisterComponent hSubmit={this.handleSubmit} hChange={this.handleChange} rError={registerError ? <p>{registerError}</p> : null}/>
+      <RegisterComponent hSubmit={this.handleSubmit} hChange={this.handleChange} rError={registerError ? <p>{registerError}</p> : null} />
     )
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    registerError: state.auth.registerError
+    registerError: state.auth.registerError,
+    auth: state.firebase.auth
   }
 }
 

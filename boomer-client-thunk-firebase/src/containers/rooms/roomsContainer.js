@@ -1,10 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { firestoreConnect } from 'react-redux-firebase';
+import { Redirect } from 'react-router-dom';
 import { compose } from 'redux';
 
-const RoomDetails = (props) => {
-  const { room } = props;
+const RoomContainer = (props) => {
+  const { room, auth } = props;
+
+  if (!auth.uid)
+    return <Redirect to="/login" />
 
   if (room) {
     return (
@@ -14,7 +18,7 @@ const RoomDetails = (props) => {
             <span className="card-title">{room.title}</span>
             <p>{room.difficulty}</p>
             <p>{room.description}</p>
-            <hr/>
+            <hr />
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis ad voluptatem, a voluptates quia ab facere rem magni ipsam repellendus molestias earum eligendi beatae soluta exercitationem non, dolor libero quos?</p>
           </div>
           <div className="card-action grey-lighten-4 grey-text">
@@ -39,7 +43,8 @@ const mapStateToProps = (state, ownProps) => {
   const rooms = state.firestore.data.rooms;
   const room = rooms ? rooms[id] : null;
   return {
-    room: room
+    room: room,
+    auth: state.firebase.auth
   }
 }
 
@@ -48,4 +53,4 @@ export default compose(
   firestoreConnect([
     { collection: "rooms" }
   ])
-)(RoomDetails);
+)(RoomContainer);

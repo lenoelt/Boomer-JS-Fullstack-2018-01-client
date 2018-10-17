@@ -8,9 +8,13 @@ const RoomsList = ({ rooms }) => {
 
       {rooms && rooms.map(room => {
         return (
-          <Link to={"/room/" + room.id} key={room.id}>
-            <RoomSummary room={room} />
-          </Link>
+
+          <div className="col l6 m8 s12" key={room.id}>
+            <Link to={"/room/" + room.id} >
+              <RoomSummary room={room} />
+            </Link>
+          </div>
+
         )
       })}
     </div>
