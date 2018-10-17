@@ -7,15 +7,15 @@ export const RegisterComponent = (props) =>
             <form onSubmit={props.hSubmit} className="z-depth-5 transparentBG">
               <h5 className="white-text center">Sign Up</h5>
 
-              {/* <div className="input-field grey-text text-lighten-4">
+              <div className="input-field grey-text text-lighten-4">
                 <label htmlFor="firstName" className="cyan-text text-lighten-1" >First Name</label>
-                <input type="text" id="firstName" onChange={this.handleChange} />
+                <input type="text" id="firstName" onChange={props.hChange} />
               </div>
 
               <div className="input-field grey-text text-lighten-4">
                 <label htmlFor="lastName" className="cyan-text text-lighten-1">Last Name</label>
-                <input type="text" id="lastName" onChange={this.handleChange} />
-              </div> */}
+                <input type="text" id="lastName" onChange={props.hChange} />
+              </div>
 
               <div className="input-field grey-text text-lighten-4">
                 <label htmlFor="email" className="cyan-text text-lighten-1">Email</label>
@@ -31,7 +31,7 @@ export const RegisterComponent = (props) =>
                 <button className="btn pink lignten-1 z-depth-4">Register</button>
               </div>
 
-              <div className="red-text text-accent-4">
+              <div className="red-text text-accent-4" >
                 {props.rError}
               </div>
 

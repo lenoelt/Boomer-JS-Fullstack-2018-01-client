@@ -8,8 +8,8 @@ class Register extends Component {
   state = {
     email: "",
     password: "",
-    // firstName: "",
-    // lastName: ""
+    firstName: "",
+    lastName: ""
   }
 
   handleChange = (e) => {

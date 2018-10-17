@@ -1,27 +1,24 @@
+
 export const signUp = (credentials) => {
-  // return (dispatch, getState, { getFirestore }) => {
-
-  //   const firestore = getFirestore();
-  //   firestore.collection("users").add({
-  //     ...user
-  //   }).then(() => {
-  //     dispatch({ type: "CREATE_USER", user });
-  //   }).catch((error) => {
-  //     dispatch({ type: "CREATE_USER_ERROR", error });
-  //   })
-  // };
-
-  return (dispatch, getState, { getFirebase }) => {
+  return (dispatch, getState, { getFirebase, getFirestore }) => {
+    
     const firebase = getFirebase();
+    const lala = getFirestore();
 
     firebase.auth().createUserWithEmailAndPassword(
       credentials.email,
       credentials.password
-    ).then(() => {
+    ).then((response) => {
+      return lala.collection("users").doc(response.user.uid).set({
+        firstName: credentials.firstName,
+        lastName: credentials.lastName,
+        initials: credentials.firstName[0] + credentials.lastName[0]
+      });
+    }).then(() => {
       dispatch({ type: "REGISTER_SUCCESS" })
     }).catch((error) => {
       dispatch({ type: "REGISTER_ERROR", error });
-    });
+    })
   }
 };
 

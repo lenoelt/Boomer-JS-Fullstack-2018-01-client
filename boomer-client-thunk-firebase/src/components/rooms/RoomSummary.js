@@ -3,6 +3,7 @@ import evil from '../../assets/images/ssj.png';
 import hard from '../../assets/images/sweat.png';
 import easy from '../../assets/images/stairway.png';
 import medium from '../../assets/images/trail.png';
+import hideThePain from '../../assets/images/HideThePain.png'
 
 const RoomSummary = ({ room }) => {
 
@@ -22,7 +23,7 @@ const RoomSummary = ({ room }) => {
       roomIMG = easy;
       break;
     default:
-      roomIMG = "https://awesomeliesblog.files.wordpress.com/2018/05/38858806-flames-fire-jpg.jpg";
+      roomIMG = hideThePain;
       break;
   }
 

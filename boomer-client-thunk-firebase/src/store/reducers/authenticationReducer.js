@@ -23,7 +23,10 @@ const authenticationReducer = (state = initState, action) => {
 
     case "REGISTER_SUCCESS":
       console.log("A new user has been registered.");
-      return state;
+      return {
+        ...state,
+        registerError: null
+      };
 
     case "REGISTER_ERROR":
       console.log("ERROR : A problem occurred during the registration : ", action.error.message);
