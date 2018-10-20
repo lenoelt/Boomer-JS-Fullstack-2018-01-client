@@ -3,13 +3,13 @@ export const signUp = (credentials) => {
   return (dispatch, getState, { getFirebase, getFirestore }) => {
     
     const firebase = getFirebase();
-    const lala = getFirestore();
+    const firestore = getFirestore();
 
     firebase.auth().createUserWithEmailAndPassword(
       credentials.email,
       credentials.password
     ).then((response) => {
-      return lala.collection("users").doc(response.user.uid).set({
+      return firestore.collection("users").doc(response.user.uid).set({
         firstName: credentials.firstName,
         lastName: credentials.lastName,
         initials: credentials.firstName[0] + credentials.lastName[0]
