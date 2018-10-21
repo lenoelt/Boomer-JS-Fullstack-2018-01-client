@@ -1,17 +1,16 @@
 
 import axios from 'axios';
 
-const apiUrl = 'https://jsonplaceholder.typicode.com/posts';
-
 export const signIn = (credentials) => {
   return (dispatch, getState) => {
-    return axios.post("/auths/signup", credentials, {
+    return axios.post("/auths/login", credentials, {
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
     })
-      .then(() => {
-        dispatch({ type: "SIGN_IN_SUCCESS", credentials })
+      .then((response) => {
+        console.log("Login Response : ", response);
+        dispatch({ type: "SIGN_IN_SUCCESS", response })
       })
       .catch(error => {
         dispatch({ type: "SIGN_IN_ERROR" });
@@ -22,16 +21,29 @@ export const signIn = (credentials) => {
 
 export const signUp = (credentials) => {
   return (dispatch, getState) => {
-    return axios.post("", credentials, {
+    return axios.post("/auths/signup", credentials, {
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
     })
-      .then(() => {
-        dispatch({ type: "SIGN_UP_SUCCESS", credentials })
+      .then((response) => {
+        dispatch({ type: "SIGN_UP_SUCCESS", response })
       })
       .catch(error => {
-        dispatch({ type: "SIGN_UP_ERROR" });
+        dispatch({ type: "SIGN_UP_ERROR", error });
+        throw (error);
+      })
+  };
+};
+
+export const signOut = () => {
+  return (dispatch, getState) => {
+    return axios.get("auths/logout")
+      .then(response => {
+        dispatch({ type: "SIGN_OUT_SUCCESS", response })
+      })
+      .catch(error => {
+        dispatch({ type: "SIGN_OUT_ERROR" });
         throw (error);
       })
   };

@@ -21,3 +21,19 @@ form button, form h5 {
   background-color: rgba(22, 32, 44 , 0.7);
   border-radius: 5px;
 }
+
+#sidenav-overlay {
+  z-index: 0;
+}
+
+.side-nav {
+  background-color: #073f36;
+}
+.side-nav ul {
+  width: 100%;
+}
+
+.side-nav a {
+  border-bottom: 1px solid white;
+  color: white
+}
