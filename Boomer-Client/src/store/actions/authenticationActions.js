@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const signIn = (credentials) => {
   return (dispatch, getState) => {
-    return axios.post("/auths/login", credentials, {
+    return axios.post("http://localhost:3000/auths/login", credentials, {
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
@@ -21,7 +21,7 @@ export const signIn = (credentials) => {
 
 export const signUp = (credentials) => {
   return (dispatch, getState) => {
-    return axios.post("/auths/signup", credentials, {
+    return axios.post("http://localhost:3000/auths/signup", credentials, {
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
@@ -38,7 +38,7 @@ export const signUp = (credentials) => {
 
 export const signOut = () => {
   return (dispatch, getState) => {
-    return axios.get("auths/logout")
+    return axios.get("http://localhost:3000/auths/logout")
       .then(response => {
         dispatch({ type: "SIGN_OUT_SUCCESS", response })
       })

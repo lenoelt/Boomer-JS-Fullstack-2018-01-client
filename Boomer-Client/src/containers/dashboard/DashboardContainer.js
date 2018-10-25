@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import UsersTopScores from '../../components/dashboard/UsersTopScores';
 import UserInfo from '../../components/dashboard/UserInfo';
 import RoomsList from '../../components/rooms/RoomsList';
