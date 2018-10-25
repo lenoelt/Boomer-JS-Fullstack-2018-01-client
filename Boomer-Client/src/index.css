@@ -37,3 +37,9 @@ form button, form h5 {
   border-bottom: 1px solid white;
   color: white
 }
+
+@media screen and (min-width: 600px) {
+  .card-content {
+    min-height: 120px;
+  }
+}
