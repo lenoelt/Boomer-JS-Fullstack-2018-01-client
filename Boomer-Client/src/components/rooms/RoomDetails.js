@@ -1,6 +1,6 @@
 import React from 'react'
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8000');
+const socket = openSocket('http://localhost:3000');
 
 socket.emit('join_room', {roomId: "lol"});
 socket.on('wez', function() {
@@ -11,7 +11,6 @@ const RoomDetails = (props) => {
   const id = props.match.params.id;
   
   function send_wez() {
-    console.log("lol")
     socket.emit('wez', {});
   }
 
