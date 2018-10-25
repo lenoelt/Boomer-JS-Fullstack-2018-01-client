@@ -1,14 +1,27 @@
 import React from 'react'
+import openSocket from 'socket.io-client';
+const socket = openSocket('http://localhost:8000');
+
+socket.emit('join_room', {roomId: "lol"});
+socket.on('wez', function() {
+  document.getElementById('counter').append('1');
+})
 
 const RoomDetails = (props) => {
   const id = props.match.params.id;
+  
+  function send_wez() {
+    console.log("lol")
+    socket.emit('wez', {});
+  }
 
   return (
     <div className="container section project-details">
       <div className="card z-depth-0">
         <div className="card-content">
           <span className="card-title">Room Name - {id}</span>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis ad voluptatem, a voluptates quia ab facere rem magni ipsam repellendus molestias earum eligendi beatae soluta exercitationem non, dolor libero quos?</p>
+          <button onClick={send_wez}>WEEEEEEEEEEEZ</button>          
+          <p id="counter">0</p>
         </div>
         <div className="card-action grey-lighten-4 grey-text">
           <div>10 Players left in the room</div>
