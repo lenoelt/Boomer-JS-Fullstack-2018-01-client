@@ -2,8 +2,11 @@ import React from 'react'
 import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:3000');
 
+
+//send roomId, relocate to send only when room is joined
 socket.emit('join_room', {roomId: "lol"});
 socket.on('wez', function() {
+  //received when room is destroyed
   document.getElementById('counter').append('1');
 })
 
