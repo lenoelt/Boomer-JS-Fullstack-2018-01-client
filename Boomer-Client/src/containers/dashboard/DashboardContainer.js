@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { getRooms } from '../../store/actions/roomsActions';
 import UsersTopScores from '../../components/dashboard/UsersTopScores';
 import UserInfo from '../../components/dashboard/UserInfo';
 import RoomsList from '../../components/rooms/RoomsList';
 
 class Dashboard extends Component {
-  toaster = (message) => {
-    window.Materialize.toast(message, 4000)
+  // toaster = (message) => {
+  //   window.Materialize.toast(message, 4000)
+  // }
+
+  componentDidMount() {
+    this.props.getRooms();
   }
 
   render() {
     const { rooms, auth } = this.props;
     console.log("rooms : ", rooms);
-    console.log("auth : ", auth);
 
     if (!auth)
       return <Redirect to="/login" />
@@ -48,4 +52,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Dashboard);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getRooms: () => dispatch(getRooms()),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

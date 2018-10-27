@@ -55,7 +55,6 @@ const authenticationReducer = (state = initState, action) => {
       return {
         ...state,
       };
-
   }
   return state;
 }

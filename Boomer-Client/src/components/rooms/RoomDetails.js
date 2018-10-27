@@ -2,18 +2,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:3000');
 
-<<<<<<< HEAD
+const socket = openSocket('http://localhost:3000');
 
 //send roomId, relocate to send only when room is joined
 socket.emit('join_room', {roomId: "lol"});
 socket.on('wez', function() {
   //received when room is destroyed
-=======
-socket.emit('join_room', { roomId: "lol" });
-socket.on('wez', function () {
->>>>>>> 8def7613ae755d6dbfaf1466d5888f4411ef1b6a
   document.getElementById('counter').append('1');
 })
 

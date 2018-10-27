@@ -7,8 +7,6 @@ const SignedInLinks = (props) => {
   const { auth } = props;
   const profile = auth.data.pseudo;
 
-
-  console.log("navbar auth : ")
   return (
     <ul className="right">
       <li><NavLink to="/">Home</NavLink></li>
