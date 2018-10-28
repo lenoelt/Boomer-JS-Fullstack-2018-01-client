@@ -5,16 +5,26 @@ import openSocket from 'socket.io-client';
 
 const socket = openSocket('http://localhost:3000');
 
-//send roomId, relocate to send only when room is joined
-socket.emit('join_room', {roomId: "lol"});
+socket.on('players', function(players) {
+  console.log(players);
+})
+
 socket.on('wez', function() {
   //received when room is destroyed
   document.getElementById('counter').append('1');
 })
 
-const RoomDetails = (props) => {
+export const LeaveRoom = (props) => {  
+  const id = props.match.params.id;
+  socket.emit('leave_room', {roomId: id});
+}
+
+ export const RoomDetails = (props) => {
   const { auth } = props;
   const id = props.match.params.id;
+
+  //send roomId, relocate to send only when room is joined
+  socket.emit('join_room', {roomId: id});
 
   function send_wez() {
     socket.emit('wez', {});
@@ -45,4 +55,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(RoomDetails)
+// export default (RoomDetails)
