@@ -18,6 +18,7 @@ class App extends Component {
             <Route path="/room/:id" component={Room} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route component={Dashboard} />
           </Switch>
         </div>
       </BrowserRouter>
