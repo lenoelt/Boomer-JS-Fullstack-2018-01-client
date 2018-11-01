@@ -35,7 +35,7 @@ export const RegisterComponent = props => (
             />
           </div>
 
-          <div className="input-field">
+          <div className="input-field center-align">
             <button className="btn pink lignten-1 z-depth-4">Register</button>
           </div>
 

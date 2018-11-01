@@ -17,7 +17,6 @@ class Dashboard extends Component {
 
   render() {
     const { rooms, auth } = this.props;
-    console.log('rooms : ', rooms);
 
     if (!auth) return <Redirect to="/login" />;
 

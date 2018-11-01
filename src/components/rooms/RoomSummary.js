@@ -6,13 +6,20 @@ import hard from '../../assets/images/sweat.png';
 import easy from '../../assets/images/stairway.png';
 import medium from '../../assets/images/trail.png';
 import hideThePain from '../../assets/images/HideThePain.png';
+import myEvil from '../../assets/images/Hard2.png';
 
 const RoomSummary = ({ room }) => {
   let roomIMG = null;
+  //https://media.giphy.com/media/MWL7evUUaBvzi/giphy.gif
+  //https://i.gifer.com/RQnj.gif
+  //https://media.giphy.com/media/EJDUScEsbFnUI/giphy.gif
+  // https://media.giphy.com/media/Km0DSkleu3GkU/giphy.gif
+  // https://media.giphy.com/media/MWL7evUUaBvzi/giphy.gif
+  // https://media.giphy.com/media/NoqEh5YNQPT0s/giphy.gif
 
   switch (room.difficulty.title) {
     case 'Evil':
-      roomIMG = evil;
+      roomIMG = myEvil;
       break;
     case 'Hard':
       roomIMG = hard;
@@ -31,10 +38,10 @@ const RoomSummary = ({ room }) => {
   return (
     <div className="card medium sticky-action">
       <div className="card-image waves-effect waves-block waves-light">
-        <img className="activator" src={roomIMG} />
+        <img className="activator custoImg" src={roomIMG} />
       </div>
       <div className="card-content">
-        <span className="card-title activator grey-text text-darken-4">
+        <span className="card-title activator white-text">
           {room.difficulty.title}
           <i className="material-icons right">more_vert</i>
         </span>

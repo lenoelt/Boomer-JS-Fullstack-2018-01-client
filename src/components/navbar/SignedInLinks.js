@@ -5,7 +5,6 @@ import { signOut } from '../../store/actions/authenticationActions';
 
 const SignedInLinks = props => {
   const { auth } = props;
-  const profile = auth.data.pseudo;
 
   return (
     <ul className="right">
@@ -19,7 +18,7 @@ const SignedInLinks = props => {
       </li>
       <li>
         <NavLink to="#" className="pink lighten-1">
-          {profile}
+          {auth.data.pseudo}
         </NavLink>
       </li>
     </ul>

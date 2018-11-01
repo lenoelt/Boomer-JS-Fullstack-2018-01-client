@@ -24,9 +24,7 @@ class Login extends React.Component {
   render() {
     const { authError, auth } = this.props;
 
-    if (auth) {
-      return <Redirect to="/" />;
-    }
+    if (auth) return <Redirect to="/" />;
 
     return (
       <LoginComponent

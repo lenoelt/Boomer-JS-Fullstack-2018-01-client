@@ -18,7 +18,7 @@ export const LoginComponent = props => (
             </label>
             <input type="password" id="password" onChange={props.hChange} />
           </div>
-          <div className="input-field">
+          <div className="input-field center-align">
             <button className="btn pink lignten-1 z-depth-4">Login</button>
           </div>
           <div className="red-text text-accent-4">{props.aError}</div>
