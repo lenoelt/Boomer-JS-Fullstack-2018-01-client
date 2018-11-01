@@ -12,7 +12,7 @@ export const signIn = credentials => {
         dispatch({ type: 'SIGN_IN_SUCCESS', response });
       })
       .catch(error => {
-        dispatch({ type: 'SIGN_IN_ERROR' });
+        dispatch({ type: 'SIGN_IN_ERROR', error });
         throw error;
       });
   };
@@ -45,6 +45,20 @@ export const signOut = () => {
       })
       .catch(error => {
         dispatch({ type: 'SIGN_OUT_ERROR' });
+        throw error;
+      });
+  };
+};
+
+export const getUserData = pseudo => {
+  return (dispatch, getState) => {
+    return axios
+      .get('http://localhost:3000/user/' + pseudo)
+      .then(response => {
+        dispatch({ type: 'GET_USER_DATA_SUCCESS', response });
+      })
+      .catch(error => {
+        dispatch({ type: 'GET_USER_DATA_ERROR' });
         throw error;
       });
   };

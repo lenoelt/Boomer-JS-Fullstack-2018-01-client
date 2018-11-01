@@ -1,7 +1,9 @@
 import React from 'react';
 
 const UserInfo = props => {
-  const { auth } = props;
+  const { auth, UserInfo } = props;
+
+  console.log('This is our user info : ', UserInfo);
   return (
     <div className="Top-Scores section">
       <ul className="collection with-header">
@@ -13,7 +15,7 @@ const UserInfo = props => {
             Ranking
             <span className="right">
               {' '}
-              25
+              {UserInfo.rank}
               <i className="material-icons right goldText">
                 format_list_numbered
               </i>
@@ -26,7 +28,7 @@ const UserInfo = props => {
             Score
             <span className="right">
               {' '}
-              5 000
+              {UserInfo.score}
               <i className="material-icons right goldText">star_border</i>
             </span>
           </div>
@@ -37,7 +39,8 @@ const UserInfo = props => {
             Defeats
             <span className="right">
               {' '}
-              3<i className="material-icons right goldText">mood_bad</i>
+              {UserInfo.defeat}
+              <i className="material-icons right goldText">mood_bad</i>
             </span>
           </div>
         </li>

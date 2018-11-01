@@ -16,9 +16,10 @@ const authenticationReducer = (state = initState, action) => {
       };
 
     case 'SIGN_IN_ERROR':
+      console.log('Sign In Error : ' + action.error.response.data.message);
       return {
         ...state,
-        authError: 'Sign In Error : ' + action.error,
+        authError: 'Sign In Error : ' + action.error.response.data.message,
         hasRegistered: false,
         userData: null,
         profile: null
@@ -33,15 +34,15 @@ const authenticationReducer = (state = initState, action) => {
       };
 
     case 'SIGN_UP_ERROR':
-      console.log('Sign Up Error : ', action);
+      console.log('Sign Up Error : ', action.error.response.data.message);
       return {
         ...state,
-        registerError: 'Sign Up Error : ' + action.error,
+        registerError: 'Sign Up Error : ' + action.error.response.data.message,
         hasRegistered: false
       };
 
     case 'SIGN_OUT_SUCCESS':
-      console.log('Sign Up Error : ', action);
+      console.log('Sign Out Success : ', action);
       return {
         ...state,
         authError: null,
@@ -51,7 +52,7 @@ const authenticationReducer = (state = initState, action) => {
       };
 
     case 'SIGN_OUT_ERROR':
-      console.log('Sign Up Error : ', action);
+      console.log('Sign Out Error : ', action);
       return {
         ...state
       };

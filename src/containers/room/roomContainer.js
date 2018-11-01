@@ -7,25 +7,42 @@ import openSocket from 'socket.io-client';
 
 const socket = openSocket('http://localhost:3000/');
 
-socket.on('players', function(players) {
-  console.log(players);
-});
-
 class Room extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect: false,
+      score: this.props.auth.data.score,
+      players: 0
+    };
+
+    socket.emit('joinRoom', {
+      roomId: this.props.match.params.id,
+      userPseudo: this.props.auth.data.pseudo,
+      userId: this.props.auth.data.id
+    });
+
+    socket.on('destroy', this.setRedirectToTrue);
+    socket.on('score', this.updateScore);
+    socket.on('players', this.updatePlayers);
+  }
+
   componentWillUnmount() {
     const id = this.props.match.params.id;
     socket.emit('leaveRoom', { roomId: id });
   }
 
-  state = {
-    redirect: false,
-    score: this.props.auth.data.score
-  };
-
   updateScore = score => {
     this.setState({
       ...this.state,
       score: score
+    });
+  };
+
+  updatePlayers = players => {
+    this.setState({
+      ...this.state,
+      players: players
     });
   };
 
@@ -37,14 +54,12 @@ class Room extends Component {
 
   setRedirectToTrue = () => {
     this.setState({
+      ...this.state,
       redirect: true
     });
   };
 
   render() {
-    socket.on('destroy', this.setRedirectToTrue);
-    socket.on('score', this.updateScore);
-
     const id = this.props.match.params.id;
     const currentRoom = this.props.rooms.data.filter(room => room.id == id);
 
@@ -52,12 +67,6 @@ class Room extends Component {
     if (!this.props.auth) {
       return <Redirect to="/login" />;
     }
-
-    socket.emit('joinRoom', {
-      roomId: id,
-      userPseudo: this.props.auth.data.pseudo,
-      userId: this.props.auth.data.id
-    });
 
     function sendClick() {
       socket.emit('playerClick', {});
@@ -71,6 +80,7 @@ class Room extends Component {
           auth={this.props.auth}
           room={currentRoom}
           score={this.state.score}
+          players={this.state.players}
           sendWeez={sendClick}
           match={this.props.match}
         />

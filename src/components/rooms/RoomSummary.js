@@ -47,8 +47,6 @@ const RoomSummary = ({ room }) => {
         </span>
       </div>
       <div className="card-action">
-        <span className="goldText">NB</span>{' '}
-        <span className="white-text">players</span>
         <Link to={'/room/' + room.id} className="right">
           Rejoindre la partie
         </Link>

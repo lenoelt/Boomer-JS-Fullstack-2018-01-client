@@ -8,12 +8,10 @@ import Hard2 from '../../assets/images/Hard2.png';
 import Evil1 from '../../assets/images/fire.jpg';
 
 export const RoomDetails = props => {
-  const { auth, room } = props;
+  const { auth, room, score, players } = props;
   let difficultyColor = null;
   let colorArticle = null;
   let roomImg = null;
-
-  if (!auth) return <Redirect to="/login" />;
 
   switch (room[0].difficulty.title) {
     case 'Easy':
@@ -71,13 +69,14 @@ export const RoomDetails = props => {
           <div className="row">
             <div className="col s12 m6 l6">
               <div className="left">
-                Your score : <span className="goldText">{props.score}</span>
+                Your score : <span className="goldText">{score}</span>
                 <i className="material-icons left goldText">star_border</i>
               </div>
             </div>
             <div className="col s12 m6 l6">
               <div className="right">
-                <span className="goldText">10</span> Players left in the room
+                <span className="goldText">{players}</span> Players left in the
+                room
                 <i className="material-icons right goldText">tag_faces</i>
               </div>
             </div>
