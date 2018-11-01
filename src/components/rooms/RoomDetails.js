@@ -15,6 +15,8 @@ export const RoomDetails = props => {
 
   if (!auth) return <Redirect to="/login" />;
 
+  console.log('Auth 2 : ', auth);
+
   switch (room[0].difficulty.title) {
     case 'Easy':
       roomImg = Easy1;
@@ -71,7 +73,8 @@ export const RoomDetails = props => {
           <div className="row">
             <div className="col s12 m6 l6">
               <div className="left">
-                Your score : <span className="goldText">5000</span>
+                Your score :{' '}
+                <span className="goldText">{props.auth.data.score}</span>
                 <i className="material-icons left goldText">star_border</i>
               </div>
             </div>

@@ -11,10 +11,6 @@ socket.on('players', function(players) {
   console.log(players);
 });
 
-socket.on('score', function(score) {
-  console.log(score);
-});
-
 class Room extends Component {
   componentWillUnmount() {
     const id = this.props.match.params.id;
@@ -23,6 +19,12 @@ class Room extends Component {
 
   state = {
     redirect: false
+    //score: this.props.auth.data.score
+  };
+
+  updateScore = score => {
+    this.props.auth.data.score = score;
+    console.log('myScore', score);
   };
 
   renderRedirect = () => {
@@ -32,7 +34,6 @@ class Room extends Component {
   };
 
   setRedirectToTrue = () => {
-    console.log('Je rentre');
     this.setState({
       redirect: true
     });
@@ -40,9 +41,12 @@ class Room extends Component {
 
   render() {
     socket.on('destroy', this.setRedirectToTrue);
+    socket.on('score', this.updateScore);
 
     const id = this.props.match.params.id;
     const currentRoom = this.props.rooms.data.filter(room => room.id == id);
+
+    console.log('Auth : ', this.props.auth.data.score.score);
 
     //send roomId, relocate to send only when room is joined
     if (this.props.auth) {
@@ -60,6 +64,7 @@ class Room extends Component {
     return (
       <div>
         <div>{this.renderRedirect()}</div>
+        <div>{this.updateScore()}</div>
         <RoomDetails
           auth={this.props.auth}
           room={currentRoom}
