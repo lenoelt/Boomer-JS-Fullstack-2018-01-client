@@ -41,6 +41,7 @@ class Register extends Component {
 }
 
 const mapStateToProps = state => {
+  state.auth.authError = null;
   console.log('registerError : ', state.auth.registerError);
   console.log('hasRegistered : ', state.auth.hasRegistered);
   return {

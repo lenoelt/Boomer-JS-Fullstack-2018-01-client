@@ -20,6 +20,7 @@ class Dashboard extends Component {
   render() {
     const { rooms, auth, user } = this.props;
     console.log('user : ', user);
+    console.log('auth : ', auth);
 
     if (!auth) return <Redirect to="/login" />;
 
@@ -32,7 +33,7 @@ class Dashboard extends Component {
         </div>
         <div className="row">
           <div className="col l4 m4 s12">
-            <UserInfo auth={auth} UserInfo={user} />
+            <UserInfo auth={auth} UserInfo={user ? user : auth.data} />
             <UsersTopScores />
           </div>
           <div className="col l8 m8 s12">

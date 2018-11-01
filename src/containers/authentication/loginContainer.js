@@ -37,6 +37,7 @@ class Login extends React.Component {
 }
 
 const mapStateToProps = state => {
+  state.auth.registerError = null;
   return {
     authError: state.auth.authError,
     auth: state.auth.userData
