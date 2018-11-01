@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 import openSocket from 'socket.io-client';
 
-const socket = openSocket('http://localhost:3000');
+const socket = openSocket('http://localhost:3000/');
 
 socket.on('players', function(players) {
   console.log(players);
@@ -18,13 +18,15 @@ class Room extends Component {
   }
 
   state = {
-    redirect: false
-    //score: this.props.auth.data.score
+    redirect: false,
+    score: this.props.auth.data.score
   };
 
   updateScore = score => {
-    this.props.auth.data.score = score;
-    console.log('myScore', score);
+    this.setState({
+      ...this.state,
+      score: score
+    });
   };
 
   renderRedirect = () => {
@@ -46,16 +48,16 @@ class Room extends Component {
     const id = this.props.match.params.id;
     const currentRoom = this.props.rooms.data.filter(room => room.id == id);
 
-    console.log('Auth : ', this.props.auth.data.score.score);
-
     //send roomId, relocate to send only when room is joined
-    if (this.props.auth) {
-      socket.emit('joinRoom', {
-        roomId: id,
-        userPseudo: this.props.auth.data.pseudo,
-        userId: this.props.auth.data.id
-      });
+    if (!this.props.auth) {
+      return <Redirect to="/login" />;
     }
+
+    socket.emit('joinRoom', {
+      roomId: id,
+      userPseudo: this.props.auth.data.pseudo,
+      userId: this.props.auth.data.id
+    });
 
     function sendClick() {
       socket.emit('playerClick', {});
@@ -64,10 +66,11 @@ class Room extends Component {
     return (
       <div>
         <div>{this.renderRedirect()}</div>
-        <div>{this.updateScore()}</div>
+        {/* <div>{this.updateScore()}</div> */}
         <RoomDetails
           auth={this.props.auth}
           room={currentRoom}
+          score={this.state.score}
           sendWeez={sendClick}
           match={this.props.match}
         />
@@ -77,6 +80,7 @@ class Room extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log('state', state);
   return {
     rooms: state.rooms.rooms,
     auth: state.auth.userData
