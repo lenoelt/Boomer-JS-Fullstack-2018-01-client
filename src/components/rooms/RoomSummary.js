@@ -41,23 +41,24 @@ const RoomSummary = ({ room }) => {
         <img className="activator custoImg" src={roomIMG} />
       </div>
       <div className="card-content">
-        <span className="card-title activator white-text">
+        <span className="card-title activator">
           {room.difficulty.title}
           <i className="material-icons right">more_vert</i>
         </span>
       </div>
-      <div className="card-action ">
-        <span>NB players</span>
+      <div className="card-action">
+        <span className="goldText">NB</span>{' '}
+        <span className="white-text">players</span>
         <Link to={'/room/' + room.id} className="right">
           Rejoindre la partie
         </Link>
       </div>
       <div className="card-reveal">
-        <span className="card-title grey-text text-darken-4">
+        <span className="card-title goldText">
           {room.difficulty.title}
-          <i className="material-icons right">close</i>
+          <i className="material-icons right closeCross">close</i>
         </span>
-        <p>{room.difficulty.description}</p>
+        <p className="white-text">{room.difficulty.description}</p>
       </div>
     </div>
   );

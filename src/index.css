@@ -39,12 +39,61 @@ form button, form h5 {
 }
 
 .custoImg {
-  min-height: 250px;
+  min-height: 280px;
 }
 
 .room-content {
   width: 100%;
-  height: 500px;
+  height: 470px;
+}
+
+@media screen and (max-width: 1500px) {
+  .room-content {
+    width: 100%;
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .room-content {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+@media screen and (max-height: 680px) {
+  .room-content {
+    width: 100%;
+    height: 350px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .room-content {
+    width: 100%;
+    height: 300px;
+  }
+}
+
+@media screen and (max-height: 520px) {
+  .room-content {
+    width: 100%;
+    height: 250px;
+  }
+}
+
+@media screen and (max-height: 520px) {
+  .room-content {
+    width: 100%;
+    height: 275px;
+  }
+}
+
+@media screen and (max-height: 495px) {
+  .room-content {
+    width: 100%;
+    height: 200px;
+  }
 }
 
 .myContainer:hover {
@@ -70,18 +119,17 @@ form button, form h5 {
 }
 
 .collection.with-header .collection-item {
-  background-color: rgba(22, 32, 44, 0.9);
+  background-image: linear-gradient(60deg, #2d3641, black);
   color: white;
   border: 1px solid black;
 }
 
-.card.medium .card-image+.card-content {
+.card.medium .card-image+.card-content, .card.medium {
   background-color: rgba(22, 32, 44, 1);
-  color: white;
 }
 
 .card .card-content .card-title {
-  color: white
+  color: #ed9019;
 }
 
 .card .card-content .card-title i {
@@ -94,5 +142,104 @@ form button, form h5 {
 }
 
 .card .card-content .card-title i:hover {
-  background-color: #2d3641;
+  background-color: #121b25;
+  border-color: #ffab40;
+  color: #ffab40;
+}
+
+.card.sticky-action .card-action {
+  background-image: linear-gradient(60deg, #2d3641, black);
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+  color: #ed9019;
+}
+
+.goldText {
+  color: #ed9019;
+}
+
+.customTitleHeight {
+  font-size: 25px;
+}
+
+.navbarColor {
+  background-color: rgba(22, 32, 44, 1);
+}
+
+.navbarPseudoColor {
+  border-bottom: 1px solid #ed9019;
+  color: #ed9019;
+}
+
+.navbarLinksColor:hover {
+  border-bottom: 1px solid #ed9019;
+  color: #ed9019
+}
+
+.card .card-action {
+  background-image: linear-gradient(60deg, #2d3641, black);
+}
+
+.clickEverywhere {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: rgb(22, 32, 44, 0.9);
+  color: #ed9019;
+}
+
+.loginForm {
+  background-image: linear-gradient(60deg, #2d3641, black);
+  border: 1px solid #ed9019;
+  border-radius: 5px;
+}
+
+.input-field label {
+  color: #ed9019;
+}
+
+input[type=text]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+  box-shadow: none;
+  border-color: #ed9019;
+}
+
+.btn {
+  background-color: rgba(22, 32, 44, 1);
+  border: 1px solid #ed9019;
+  color: #ed9019;
+}
+
+.btn {
+  background-color: rgba(22, 32, 44, 1);
+}
+
+.btn:hover {
+  background-color: #ed9019;
+  color: rgba(22, 32, 44, 1);
+  border: 1px solid black;
+  font-size: 18px
+}
+
+.authErrorMessage {
+  color: red;
+}
+
+.card-reveal {
+  background-image: linear-gradient(60deg, #2d3641, black);
+}
+
+.closeCross {
+  color: white;
+  border: 1px solid white;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 4px
+}
+
+.closeCross:hover {
+  background-color: rgba(22, 32, 44, 1);
+  color: #ed9019;
+  border: 1px solid #ed9019;
 }

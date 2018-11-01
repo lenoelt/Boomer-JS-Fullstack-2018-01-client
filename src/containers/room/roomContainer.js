@@ -11,6 +11,10 @@ socket.on('players', function(players) {
   console.log(players);
 });
 
+socket.on('score', function(score) {
+  console.log(score);
+});
+
 class Room extends Component {
   componentWillUnmount() {
     const id = this.props.match.params.id;
@@ -41,11 +45,13 @@ class Room extends Component {
     const currentRoom = this.props.rooms.data.filter(room => room.id == id);
 
     //send roomId, relocate to send only when room is joined
-    socket.emit('joinRoom', {
-      roomId: id,
-      userPseudo: this.props.auth.data.pseudo,
-      userId: this.props.auth.data.id
-    });
+    if (this.props.auth) {
+      socket.emit('joinRoom', {
+        roomId: id,
+        userPseudo: this.props.auth.data.pseudo,
+        userId: this.props.auth.data.id
+      });
+    }
 
     function sendClick() {
       socket.emit('playerClick', {});

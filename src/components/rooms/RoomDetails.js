@@ -52,7 +52,7 @@ export const RoomDetails = props => {
 
   return (
     <div className="container section project-details">
-      <div className="card z-depth-5 transparentBG">
+      <div className="card">
         <div className="card-action white-text">
           <span className="card-title">
             Welcome {auth.data.pseudo}, this is {colorArticle}{' '}
@@ -62,13 +62,26 @@ export const RoomDetails = props => {
         </div>
         <div style={cardStyle} onClick={props.sendWeez} className="myContainer">
           <div className="card-content room-content white-text center-align">
-            <h3 className="center-align z-depth-5 transparentBG">
+            <h3 className="center-align z-depth-5 clickEverywhere">
               Click everywhere !!!
             </h3>
           </div>
         </div>
         <div className="card-action white-text">
-          <div className="right-align">10 Players left in the room</div>
+          <div className="row">
+            <div className="col s12 m6 l6">
+              <div className="left">
+                Your score : <span className="goldText">5000</span>
+                <i className="material-icons left goldText">star_border</i>
+              </div>
+            </div>
+            <div className="col s12 m6 l6">
+              <div className="right">
+                <span className="goldText">10</span> Players left in the room
+                <i className="material-icons right goldText">tag_faces</i>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

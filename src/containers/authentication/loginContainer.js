@@ -23,6 +23,7 @@ class Login extends React.Component {
 
   render() {
     const { authError, auth } = this.props;
+    console.log('props : ', this.props);
 
     if (auth) return <Redirect to="/" />;
 

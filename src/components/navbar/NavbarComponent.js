@@ -11,17 +11,12 @@ const NavbarComponent = props => {
   const currentLinks = auth ? (
     <SignedInLinks auth={auth} />
   ) : (
-    <SignedOutLinks />
+    <SignedOutLinks myProps={props} />
   );
 
   return (
     <div className="navbar-fixed">
-      <Navbar
-        href="/"
-        brand="Boomer"
-        className="boomerLogo teal darken-4"
-        right
-      >
+      <Navbar href="/" brand="Boomer" className="boomerLogo navbarColor" right>
         {currentLinks}
       </Navbar>
     </div>
