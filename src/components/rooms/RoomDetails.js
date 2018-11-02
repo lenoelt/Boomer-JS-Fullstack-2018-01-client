@@ -60,7 +60,7 @@ export const RoomDetails = props => {
         </div>
         <div style={cardStyle} onClick={props.sendWeez} className="myContainer">
           <div className="card-content room-content white-text center-align">
-            <h3 className="center-align z-depth-5 clickEverywhere">
+            <h3 className="center-align z-depth-5 clickEverywhere animated fadeIn delay-0.2s">
               Click everywhere !!!
             </h3>
           </div>
@@ -68,13 +68,13 @@ export const RoomDetails = props => {
         <div className="card-action white-text">
           <div className="row">
             <div className="col s12 m6 l6">
-              <div className="left">
+              <div className="left animated bounceIn delay-0.2s">
                 Your score : <span className="goldText">{score}</span>
                 <i className="material-icons left goldText">star_border</i>
               </div>
             </div>
             <div className="col s12 m6 l6">
-              <div className="right">
+              <div className="right animated bounceIn delay-0.2s">
                 <span className="goldText">{players}</span> Players left in the
                 room
                 <i className="material-icons right goldText">tag_faces</i>

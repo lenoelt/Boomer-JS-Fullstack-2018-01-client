@@ -16,7 +16,7 @@ const NavbarComponent = props => {
 
   return (
     <div className="navbar-fixed">
-      <Navbar href="/" brand="Boomer" className="boomerLogo navbarColor" right>
+      <Navbar href="/" brand="Boomer" className="boomerLogo navbarColor ">
         {currentLinks}
       </Navbar>
     </div>

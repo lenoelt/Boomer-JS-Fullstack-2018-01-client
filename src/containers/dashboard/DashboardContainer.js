@@ -8,9 +8,9 @@ import UserInfo from '../../components/dashboard/UserInfo';
 import RoomsList from '../../components/rooms/RoomsList';
 
 class Dashboard extends Component {
-  // toaster = (message) => {
-  //   window.Materialize.toast(message, 4000)
-  // }
+  toaster = message => {
+    window.Materialize.toast(message, 500);
+  };
 
   componentDidMount() {
     this.props.getRooms();
@@ -28,7 +28,13 @@ class Dashboard extends Component {
       <div className="dashboard container">
         <div className="row">
           <div className=" right col l12 m12 s12">
-            {/* <a onClick={() => { this.toaster("Hello") }} class="btn">Toast!</a> */}
+            <a
+              onClick={() => {
+                this.toaster('User 1 has joined the room !');
+              }}
+            >
+              Toast!
+            </a>
           </div>
         </div>
         <div className="row">

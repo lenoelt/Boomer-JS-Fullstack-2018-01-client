@@ -8,15 +8,17 @@ const UserInfo = props => {
     <div className="Top-Scores section">
       <ul className="collection with-header">
         <li className="collection-header center">
-          <h4 className="goldText customTitleHeight">{auth.data.pseudo}</h4>
+          <h4 className="goldText customTitleHeight animated zoomIn delay-0.2s">
+            {auth.data.pseudo}
+          </h4>
         </li>
         <li className="collection-item">
           <div>
             Ranking
-            <span className="right">
+            <span className="right animated flipInY delay-0.2s">
               {' '}
               {UserInfo.rank}
-              <i className="material-icons right goldText">
+              <i className="material-icons right goldText ">
                 format_list_numbered
               </i>
             </span>
@@ -26,10 +28,10 @@ const UserInfo = props => {
         <li className="collection-item">
           <div>
             Score
-            <span className="right">
+            <span className="right animated flipInY delay-0.2s">
               {' '}
               {UserInfo.score}
-              <i className="material-icons right goldText">star_border</i>
+              <i className="material-icons right goldText ">star_border</i>
             </span>
           </div>
         </li>
@@ -37,10 +39,12 @@ const UserInfo = props => {
         <li className="collection-item">
           <div>
             Defeats
-            <span className="right">
+            <span className="right animated flipInY delay-0.2s">
               {' '}
               {UserInfo.defeat}
-              <i className="material-icons right goldText">mood_bad</i>
+              <i className="material-icons right goldText animated flipInY delay-0.2s">
+                mood_bad
+              </i>
             </span>
           </div>
         </li>

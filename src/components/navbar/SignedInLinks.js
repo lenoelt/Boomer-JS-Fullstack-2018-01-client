@@ -9,17 +9,24 @@ const SignedInLinks = props => {
   return (
     <ul className="right">
       <li>
-        <NavLink to="/" className="navbarLinksColor">
+        <NavLink to="/" className="navbarLinksColor animated zoomIn delay-0.2s">
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="#" className="navbarLinksColor" onClick={props.signOut}>
+        <NavLink
+          to="#"
+          className="navbarLinksColor animated zoomIn delay-0.2s"
+          onClick={props.signOut}
+        >
           Log Out
         </NavLink>
       </li>
       <li>
-        <NavLink to="#" className="navbarPseudoColor">
+        <NavLink
+          to="#"
+          className="navbarPseudoColor animated fadeInRight delay-0.2s"
+        >
           {auth.data.pseudo}
         </NavLink>
       </li>

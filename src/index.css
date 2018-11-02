@@ -26,7 +26,7 @@ form button, form h5 {
 }
 
 .side-nav {
-  background-color: #073f36;
+  background-color: rgb(20, 29, 39);
 }
 
 .side-nav ul {
@@ -34,8 +34,11 @@ form button, form h5 {
 }
 
 .side-nav a {
-  border-bottom: 1px solid white;
   color: white;
+}
+
+.side-nav a:hover {
+  background-color: rgb(22, 32, 44);
 }
 
 .custoImg {
@@ -104,6 +107,10 @@ form button, form h5 {
   cursor: url("./assets/images/Boom.PNG"), auto
 }
 
+.myContainer:visited {
+  cursor: url("./assets/images/BombCursor.png"), auto
+}
+
 .with-header {
   border: none
 }
@@ -152,6 +159,11 @@ form button, form h5 {
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
+  color: #ffab40;
+  text-decoration: underline;
+}
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
   color: #ed9019;
 }
 
@@ -218,6 +230,31 @@ input[type=text]:not(.browser-default):focus:not([readonly]), input[type=email]:
   color: rgba(22, 32, 44, 1);
   border: 1px solid black;
   font-size: 18px
+}
+
+.btn:active {
+  background-color: #ed9019;
+  color: rgba(22, 32, 44, 1);
+  border: 1px solid black;
+  font-size: 18px
+}
+
+.toast {
+  background-color: rgba(22, 32, 44, 1);
+  border: 1px solid #ed9019;
+  border-radius: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+  .toast {
+    width: 50%;
+    border-radius: 50px;
+    font-size: 10px
+  }
+}
+
+.btn {
+  background-color: rgba(22, 32, 44, 1);
 }
 
 .authErrorMessage {
