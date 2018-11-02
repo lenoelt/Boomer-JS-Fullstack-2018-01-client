@@ -5,10 +5,13 @@ import { signIn } from '../../store/actions/authenticationActions';
 import { LoginComponent } from '../../components/authentication/Login';
 
 class Login extends React.Component {
-  state = {
-    pseudo: '',
-    password: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      pseudo: '',
+      password: ''
+    };
+  }
 
   handleChange = e => {
     this.setState({

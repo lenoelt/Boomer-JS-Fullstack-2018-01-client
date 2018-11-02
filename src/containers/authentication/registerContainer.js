@@ -5,11 +5,14 @@ import { signUp } from '../../store/actions/authenticationActions';
 import { RegisterComponent } from '../../components/authentication/Register';
 
 class Register extends Component {
-  state = {
-    pseudo: '',
-    password: '',
-    password_confirmation: ''
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      pseudo: '',
+      password: '',
+      password_confirmation: ''
+    };
+  }
 
   handleChange = e => {
     this.setState({
