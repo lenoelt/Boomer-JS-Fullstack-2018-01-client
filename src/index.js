@@ -8,6 +8,8 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers/rootReducer';
 
+//babel src -d build
+
 function saveToLocalStorage(state) {
   try {
     const serializedState = JSON.stringify(state);
