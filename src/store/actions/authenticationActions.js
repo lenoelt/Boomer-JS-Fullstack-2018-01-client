@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { API_URL } from '../../environment';
 
 export const signIn = credentials => {
   return (dispatch, getState) => {
     return axios
-      .post('http://localhost:3000/auths/login', credentials, {
+      .post(API_URL + '/auths/login', credentials, {
         headers: {
           'Content-type': 'application/json; charset=UTF-8'
         }
@@ -21,7 +22,7 @@ export const signIn = credentials => {
 export const signUp = credentials => {
   return (dispatch, getState) => {
     return axios
-      .post('http://localhost:3000/auths/signup', credentials, {
+      .post(API_URL + '/auths/signup', credentials, {
         headers: {
           'Content-type': 'application/json; charset=UTF-8'
         }
@@ -39,7 +40,7 @@ export const signUp = credentials => {
 export const signOut = () => {
   return (dispatch, getState) => {
     return axios
-      .get('http://localhost:3000/auths/logout')
+      .get(API_URL + '/auths/logout')
       .then(response => {
         dispatch({ type: 'SIGN_OUT_SUCCESS', response });
       })
@@ -53,7 +54,7 @@ export const signOut = () => {
 export const getUserData = pseudo => {
   return (dispatch, getState) => {
     return axios
-      .get('http://localhost:3000/user/' + pseudo)
+      .get(API_URL + '/user/' + pseudo)
       .then(response => {
         dispatch({ type: 'GET_USER_DATA_SUCCESS', response });
       })

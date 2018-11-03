@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { RoomDetails } from '../../components/rooms/RoomDetails';
 import { Redirect } from 'react-router-dom';
+import { API_URL } from '../../environment';
 
 import openSocket from 'socket.io-client';
 
-const socket = openSocket('http://localhost:3000/');
+const socket = openSocket(API_URL);
 
 class Room extends Component {
   constructor(props) {

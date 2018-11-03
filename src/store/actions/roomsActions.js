@@ -1,9 +1,10 @@
 import axios from 'axios';
+import { API_URL } from '../../environment';
 
 export const getRooms = () => {
   return (dispatch, getState) => {
     return axios
-      .get('http://localhost:3000/rooms')
+      .get(API_URL + '/rooms')
       .then(response => {
         dispatch({ type: 'GET_ROOMS_SUCCESS', response });
       })
