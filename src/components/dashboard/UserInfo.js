@@ -12,18 +12,6 @@ const UserInfo = props => {
             {auth.data.pseudo}
           </h4>
         </li>
-        <li className="collection-item">
-          <div>
-            Ranking
-            <span className="right animated flipInY delay-0.2s">
-              {' '}
-              {UserInfo.rank}
-              <i className="material-icons right goldText ">
-                format_list_numbered
-              </i>
-            </span>
-          </div>
-        </li>
 
         <li className="collection-item">
           <div>
