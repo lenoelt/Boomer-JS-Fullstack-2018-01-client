@@ -1,6 +1,6 @@
 import React from 'react';
 
-const UsersTopScores = () => {
+const UsersTopScores = ({ scores }) => {
   return (
     <div className="Top-Scores section">
       <ul className="collection with-header">
@@ -9,7 +9,23 @@ const UsersTopScores = () => {
             Top scores
           </h4>
         </li>
-        <li className="collection-item">
+        {scores &&
+          scores.map(currScore => {
+            return (
+              <li className="collection-item" key={currScore.id}>
+                <div>
+                  <span className="goldText">{currScore.ranking}</span>.{' '}
+                  {currScore.name}
+                  <span className="right animated flipInY delay-0.2s">
+                    {' '}
+                    {currScore.score}
+                    <i className="material-icons right goldText">star_border</i>
+                  </span>
+                </div>
+              </li>
+            );
+          })}
+        {/* <li className="collection-item">
           <div>
             <span className="goldText">1</span>. User 1
             <span className="right animated flipInY delay-0.2s">
@@ -58,7 +74,7 @@ const UsersTopScores = () => {
               <i className="material-icons right goldText">star_border</i>
             </span>
           </div>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

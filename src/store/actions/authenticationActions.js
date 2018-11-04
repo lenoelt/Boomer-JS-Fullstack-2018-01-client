@@ -50,17 +50,3 @@ export const signOut = () => {
       });
   };
 };
-
-export const getUserData = pseudo => {
-  return (dispatch, getState) => {
-    return axios
-      .get(API_URL + '/user/' + pseudo)
-      .then(response => {
-        dispatch({ type: 'GET_USER_DATA_SUCCESS', response });
-      })
-      .catch(error => {
-        dispatch({ type: 'GET_USER_DATA_ERROR' });
-        throw error;
-      });
-  };
-};

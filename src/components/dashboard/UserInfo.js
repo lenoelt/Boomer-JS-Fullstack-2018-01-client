@@ -1,4 +1,5 @@
 import React from 'react';
+import { userInfo } from 'os';
 
 const UserInfo = props => {
   const { auth, UserInfo } = props;
