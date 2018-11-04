@@ -16,6 +16,7 @@ class Dashboard extends Component {
   componentDidMount() {
     if (this.props.auth) {
       this.props.getRooms();
+      this.props.getTopScores();
       this.props.getUserData(this.props.auth.data.pseudo);
     } else {
       return <Redirect to="/login" />;
@@ -24,8 +25,8 @@ class Dashboard extends Component {
 
   render() {
     const { rooms, auth, user, scores } = this.props;
+    console.log(scores);
     if (!auth) return <Redirect to="/login" />;
-    console.log(user);
     return (
       <div className="dashboard container">
         {/* <div className="row">
@@ -56,11 +57,12 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log(state);
   return {
     rooms: state.rooms.rooms,
     auth: state.auth.userData,
     user: state.user.userInfos,
-    userScores: state.scores.data
+    scores: state.scores.scores
   };
 };
 

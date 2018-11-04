@@ -10,12 +10,12 @@ const UsersTopScores = ({ scores }) => {
           </h4>
         </li>
         {scores &&
-          scores.map(currScore => {
+          scores.data.map(currScore => {
             return (
               <li className="collection-item" key={currScore.id}>
                 <div>
-                  <span className="goldText">{currScore.ranking}</span>.{' '}
-                  {currScore.name}
+                  <span className="goldText">{currScore.id}</span>.{' '}
+                  {currScore.pseudo}
                   <span className="right animated flipInY delay-0.2s">
                     {' '}
                     {currScore.score}
