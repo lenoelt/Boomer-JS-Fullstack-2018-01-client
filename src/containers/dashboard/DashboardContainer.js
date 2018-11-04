@@ -29,7 +29,18 @@ class Dashboard extends Component {
             <UserInfo auth={auth} UserInfo={user ? user : auth.data} />
             <UsersTopScores scores={scores} />
           </div>
+
           <div className="col l8 m8 s12">
+            <ul className="collection with-header">
+              <li className="collection-header center">
+                <h3>Welcome in Boomer !</h3>
+                <p>
+                  The more you click, the more points you earn. But be careful,
+                  leave before the blow.
+                </p>
+              </li>
+            </ul>
+            <div className="white-text" />
             <div className="row">
               <RoomsList rooms={rooms} />
             </div>
