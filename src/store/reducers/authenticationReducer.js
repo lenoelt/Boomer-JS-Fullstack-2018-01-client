@@ -8,7 +8,7 @@ const initState = {
 const authenticationReducer = (state = initState, action) => {
   switch (action.type) {
     case 'SIGN_IN_SUCCESS':
-    console.log(action.response.data);
+      console.log(action.response.data);
       return {
         ...state,
         authError: null,

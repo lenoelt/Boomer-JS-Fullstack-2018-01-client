@@ -3,7 +3,6 @@ import React from 'react';
 const UserInfo = props => {
   const { auth, UserInfo } = props;
 
-  console.log('This is our user info : ', UserInfo);
   return (
     <div className="Top-Scores section">
       <ul className="collection with-header">

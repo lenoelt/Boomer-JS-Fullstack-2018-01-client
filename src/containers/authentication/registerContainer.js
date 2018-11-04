@@ -27,7 +27,6 @@ class Register extends Component {
 
   render() {
     const { registerError, hasRegistered, auth } = this.props;
-    console.log('props : ', this.props);
 
     if (hasRegistered && !auth) return <Redirect to="/login" />;
 
@@ -45,8 +44,6 @@ class Register extends Component {
 
 const mapStateToProps = state => {
   state.auth.authError = null;
-  console.log('registerError : ', state.auth.registerError);
-  console.log('hasRegistered : ', state.auth.hasRegistered);
   return {
     registerError: state.auth.registerError,
     hasRegistered: state.auth.hasRegistered,

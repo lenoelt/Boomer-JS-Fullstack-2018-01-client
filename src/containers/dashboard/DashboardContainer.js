@@ -13,8 +13,12 @@ class Dashboard extends Component {
   // };
 
   componentDidMount() {
-    this.props.getRooms();
-    this.props.getUserData(this.props.auth.data.pseudo);
+    if (this.props.auth) {
+      this.props.getRooms();
+      this.props.getUserData(this.props.auth.data.pseudo);
+    } else {
+      return <Redirect to="/login" />;
+    }
   }
 
   render() {

@@ -91,7 +91,6 @@ class Room extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log('state', state);
   return {
     rooms: state.rooms.rooms,
     auth: state.auth.userData

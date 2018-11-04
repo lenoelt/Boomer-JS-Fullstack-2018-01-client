@@ -12,8 +12,6 @@ class Login extends React.Component {
       pseudo: '',
       password: ''
     };
-    console.log('API URL : ', API_URL);
-    console.log('ENV : ', process.env);
   }
 
   handleChange = e => {
