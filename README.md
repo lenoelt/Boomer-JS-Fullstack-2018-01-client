@@ -1,15 +1,18 @@
 # Boomer-JS-Fullstack-2018-01-client
 
 . Alexandre Martins
-. Benoît Sommervogel
+. Benoï¿½t Sommervogel
 . Thomas Lenoel
 
-/*--- Lancer le projet---*/
+/_--- Lancer le projet---_/
 
 En local:
-. Lancer Wamp.
-. Le serveur se lance sur le port 3001.
-. Le client se lance sur le port 3000.
+. Clonez le dÃ©pot Github.
+. Pour installer les node modules, ancez la commande: npm install
+. Pour lancer l'application en mode production, lancez la commande: npm run build
+. Lancez la commande: npm install --save serve
+. lancez la commande: serve -s build
+. Rendez-vous sur http://localhost:5000
 
 En ligne:
 . Rendez-vous sur: https://boomer-fullstackjs-client.herokuapp.com/

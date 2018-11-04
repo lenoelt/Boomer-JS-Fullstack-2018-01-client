@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import thunk from 'redux-thunk';
 import './index.css';
-import * as serviceWorker from './serviceWorker';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
+import * as serviceWorker from './serviceWorker';
+import App from './App';
 import rootReducer from './store/reducers/rootReducer';
 
 function saveToLocalStorage(state) {
