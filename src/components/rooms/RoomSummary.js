@@ -5,7 +5,11 @@ const RoomSummary = ({ room }) => {
   return (
     <div className="card medium sticky-action">
       <div className="card-image waves-effect waves-block waves-light">
-        <img className="activator custoImg" src={room.difficulty.background} />
+        <img
+          className="activator custoImg"
+          src={room.difficulty.background}
+          alt={room.difficulty.title}
+        />
       </div>
       <div className="card-content">
         <span className="card-title activator">

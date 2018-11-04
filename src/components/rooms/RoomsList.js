@@ -2,7 +2,6 @@ import React from 'react';
 import RoomSummary from './RoomSummary';
 
 const RoomsList = ({ rooms }) => {
-  console.log(rooms);
   return (
     <div className="rooms-list section">
       {rooms &&

@@ -9,10 +9,6 @@ import UserInfo from '../../components/dashboard/UserInfo';
 import RoomsList from '../../components/rooms/RoomsList';
 
 class Dashboard extends Component {
-  // toaster = message => {
-  //   window.Materialize.toast(message, 500);
-  // };
-
   componentDidMount() {
     if (this.props.auth) {
       this.props.getRooms();
@@ -25,21 +21,9 @@ class Dashboard extends Component {
 
   render() {
     const { rooms, auth, user, scores } = this.props;
-    console.log(scores);
     if (!auth) return <Redirect to="/login" />;
     return (
       <div className="dashboard container">
-        {/* <div className="row">
-          <div className=" right col l12 m12 s12">
-            <a
-              onClick={() => {
-                this.toaster('User 1 has joined the room !');
-              }}
-            >
-              Toast!
-            </a>
-          </div>
-        </div> */}
         <div className="row">
           <div className="col l4 m4 s12">
             <UserInfo auth={auth} UserInfo={user ? user : auth.data} />
@@ -57,7 +41,6 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     rooms: state.rooms.rooms,
     auth: state.auth.userData,

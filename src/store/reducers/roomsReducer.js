@@ -18,6 +18,10 @@ const roomsReducer = (state = initState, action) => {
         getRoomsError: null,
         rooms: null
       };
+    default:
+      return {
+        ...state
+      };
   }
   return state;
 };

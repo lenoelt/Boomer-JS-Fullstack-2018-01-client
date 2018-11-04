@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { signIn } from '../../store/actions/authenticationActions';
 import { LoginComponent } from '../../components/authentication/Login';
-import { API_URL } from '../../environment';
 
 class Login extends React.Component {
   constructor(props) {

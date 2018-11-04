@@ -7,8 +7,9 @@
 /*--- Lancer le projet---*/
 
 En local:
+. Lancer Wamp.
 . Le serveur se lance sur le port 3001.
-. le client se lance sur le port 3000.
+. Le client se lance sur le port 3000.
 
 En ligne:
 . Rendez-vous sur: https://boomer-fullstackjs-client.herokuapp.com/

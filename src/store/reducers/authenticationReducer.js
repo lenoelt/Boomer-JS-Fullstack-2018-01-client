@@ -8,7 +8,6 @@ const initState = {
 const authenticationReducer = (state = initState, action) => {
   switch (action.type) {
     case 'SIGN_IN_SUCCESS':
-      console.log(action.response.data);
       return {
         ...state,
         authError: null,
@@ -17,7 +16,6 @@ const authenticationReducer = (state = initState, action) => {
       };
 
     case 'SIGN_IN_ERROR':
-      console.log('Sign In Error : ' + action.error.response.data.message);
       return {
         ...state,
         authError: 'Sign In Error : ' + action.error.response.data.message,
@@ -27,7 +25,6 @@ const authenticationReducer = (state = initState, action) => {
       };
 
     case 'SIGN_UP_SUCCESS':
-      console.log('Sign Up : ', action.response.data);
       return {
         ...state,
         registerError: null,
@@ -35,7 +32,6 @@ const authenticationReducer = (state = initState, action) => {
       };
 
     case 'SIGN_UP_ERROR':
-      console.log('Sign Up Error : ', action.error.response.data.message);
       return {
         ...state,
         registerError: 'Sign Up Error : ' + action.error.response.data.message,
@@ -43,7 +39,6 @@ const authenticationReducer = (state = initState, action) => {
       };
 
     case 'SIGN_OUT_SUCCESS':
-      console.log('Sign Out Success : ', action);
       return {
         ...state,
         authError: null,
@@ -53,7 +48,10 @@ const authenticationReducer = (state = initState, action) => {
       };
 
     case 'SIGN_OUT_ERROR':
-      console.log('Sign Out Error : ', action);
+      return {
+        ...state
+      };
+    default:
       return {
         ...state
       };

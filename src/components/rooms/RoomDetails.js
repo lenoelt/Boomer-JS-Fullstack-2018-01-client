@@ -5,6 +5,29 @@ export const RoomDetails = props => {
   let difficultyColor = null;
   let colorArticle = null;
 
+  switch (room[0].difficulty.title) {
+    case 'Easy':
+      difficultyColor = 'green-text';
+      colorArticle = 'an';
+      break;
+    case 'Medium':
+      difficultyColor = 'yellow-text';
+      colorArticle = 'a';
+      break;
+    case 'Hard':
+      difficultyColor = 'orange-text';
+      colorArticle = 'a';
+      break;
+    case 'Evil':
+      difficultyColor = 'red-text';
+      colorArticle = 'an';
+      break;
+    default:
+      colorArticle = 'a';
+      difficultyColor = 'green-text';
+      break;
+  }
+
   var cardStyle = {
     backgroundImage: 'url(' + room[0].difficulty.background + ')',
     backgroundPosition: 'center',

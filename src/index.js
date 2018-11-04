@@ -8,20 +8,11 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './store/reducers/rootReducer';
 
-//babel src -d build
-// "start": "react-scripts start",
-//     "build": "babel src -d build",
-//     "flow": "flow",
-//     "test": "react-scripts test",
-//     "eject": "react-scripts eject"
-
 function saveToLocalStorage(state) {
   try {
     const serializedState = JSON.stringify(state);
     localStorage.setItem('state', serializedState);
-  } catch (e) {
-    console.log(e);
-  }
+  } catch (e) {}
 }
 
 function loadFromLocalStorage() {
@@ -31,7 +22,6 @@ function loadFromLocalStorage() {
     if (serializedState == null) return undefined;
     return JSON.parse(serializedState);
   } catch (e) {
-    console.log(e);
     return undefined;
   }
 }
