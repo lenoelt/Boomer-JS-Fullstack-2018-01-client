@@ -1,7 +1,7 @@
-let API_URL = 'http://localhost:3000';
+let API_URL = 'http://localhost:3001';
 
 if (process.env.NODE_ENV === 'development') {
-  API_URL = 'http://localhost:3000';
+  API_URL = 'http://localhost:3001';
 }
 
 if (process.env.NODE_ENV === 'production') {

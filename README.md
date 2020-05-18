@@ -5,7 +5,7 @@
 . Thomas Lenoel
 
 . Clonez le dépot Github.
-. Assurez vous d'avoir la dernière version de node.js installée sur votre machine
+. Assurez vous d'avoir la dernière version de node.js installée sur votre machine.
 . Pour installer les node modules, lancez la commande: npm install
 
 En local (production): (Vous utiliserez ainsi notre api en ligne)

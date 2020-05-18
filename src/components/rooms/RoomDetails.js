@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const RoomDetails = props => {
+const RoomDetails = props => {
   const { auth, room, score, players } = props;
   let difficultyColor = null;
   let colorArticle = null;
@@ -28,8 +28,8 @@ export const RoomDetails = props => {
       break;
   }
 
-  var cardStyle = {
-    backgroundImage: 'url(' + room[0].difficulty.background + ')',
+  const cardStyle = {
+    backgroundImage: `url(${room[0].difficulty.background})`,
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover'
@@ -73,3 +73,5 @@ export const RoomDetails = props => {
     </div>
   );
 };
+
+export default RoomDetails;

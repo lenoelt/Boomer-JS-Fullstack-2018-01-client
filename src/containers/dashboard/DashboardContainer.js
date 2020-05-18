@@ -26,7 +26,7 @@ class Dashboard extends Component {
       <div className="dashboard container">
         <div className="row">
           <div className="col l4 m4 s12">
-            <UserInfo auth={auth} UserInfo={user ? user : auth.data} />
+            <UserInfo auth={auth} UserInfo={user || auth.data} />
             <UsersTopScores scores={scores} />
           </div>
 
@@ -51,22 +51,18 @@ class Dashboard extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    rooms: state.rooms.rooms,
-    auth: state.auth.userData,
-    user: state.user.userInfos,
-    scores: state.scores.scores
-  };
-};
+const mapStateToProps = state => ({
+  rooms: state.rooms.rooms,
+  auth: state.auth.userData,
+  user: state.user.userInfos,
+  scores: state.scores.scores
+});
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getRooms: () => dispatch(getRooms()),
-    getUserData: pseudo => dispatch(getUserData(pseudo)),
-    getTopScores: () => dispatch(getTopScores())
-  };
-};
+const mapDispatchToProps = dispatch => ({
+  getRooms: () => dispatch(getRooms()),
+  getUserData: pseudo => dispatch(getUserData(pseudo)),
+  getTopScores: () => dispatch(getTopScores())
+});
 
 export default connect(
   mapStateToProps,

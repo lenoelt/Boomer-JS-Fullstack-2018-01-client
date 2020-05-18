@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { RoomDetails } from '../../components/rooms/RoomDetails';
+import RoomDetails from '../../components/rooms/RoomDetails';
 import { Redirect } from 'react-router-dom';
 import { API_URL } from '../../environment';
 
